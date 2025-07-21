@@ -33,9 +33,10 @@ const Navbar = () => {
                <span className='ml-2 text-[#697077] hidden lg:block'>webCode</span>
             </Link>
          </div>
+
          <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 font-bold">
-               <li><Link to="/">Home</Link></li>
+               <li><Link to="/" className="">Home</Link></li>
                <li><Link to="/services">Services</Link></li>
                <li><Link to="/blogs">Blogs</Link></li>
                <li>
@@ -51,10 +52,12 @@ const Navbar = () => {
                </li>
             </ul>
          </div>
+
          <div className="navbar-end space-x-3">
             <Link to="/login" className='btn btn-outline btn-primary px-8 hidden sm:flex'>Log In</Link>
             <Link to="/pricing" className='btn btn-primary bg-primary px-8'>Free Trail</Link>
          </div>
+         
       </div>
    );
 };
