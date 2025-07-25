@@ -1,5 +1,6 @@
 
 import { FiSettings, FiCode, FiSmartphone, FiCloud, FiArrowRight } from "react-icons/fi";
+import HeadingSection from "../../components/HeadingSection";
 
 const tools = [
    {
@@ -28,10 +29,11 @@ const ToolsSection = () => {
    return (
       <>
          <section className="max-w-screen-2xl container mx-auto px-5 py-20">
-            <div className="text-center mb-10">
+            {/* <div className="text-center mb-10">
                <h5 className="text-xl font-bold">The tools you need</h5>
                <h1 className="text-4xl font-bold">All-in-One Solution for Your Projects</h1>
-            </div>
+            </div> */}
+            < HeadingSection subHeading="The tools you need" heading="All-in-One Solution for Your Projects" />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                {
                   tools.map((tool, index) => (
