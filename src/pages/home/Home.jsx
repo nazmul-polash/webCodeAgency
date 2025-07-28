@@ -5,6 +5,7 @@ import CompanyLogos from "./CompanyLogos";
 import ServiceSection from "./ServiceSection";
 import Testimonial from "./Testimonial";
 import Blog from "../blog/Blog";
+import Teams from "./Teams";
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
          <ServiceSection />
          <Testimonial />
          <Blog />
+         <Teams />
       </>
    )
 }
