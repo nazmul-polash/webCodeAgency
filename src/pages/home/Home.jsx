@@ -6,6 +6,9 @@ import ServiceSection from "./ServiceSection";
 import Testimonial from "./Testimonial";
 import Blog from "../blog/Blog";
 import Teams from "./Teams";
+import Price from "../price/Price";
+import FAQs from "./FAQs";
+import NewsLetter from "./NewsLetter";
 
 
 const Home = () => {
@@ -18,6 +21,9 @@ const Home = () => {
          <Testimonial />
          <Blog />
          <Teams />
+         <Price />
+         <FAQs />
+         <NewsLetter />
       </>
    )
 }
