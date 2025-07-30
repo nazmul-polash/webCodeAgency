@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "./Hero";
 import ToolsSection from "./ToolsSection";
 import CompanyLogos from "./CompanyLogos";
-import ServiceSection from "./ServiceSection";
+import Services from "../services/Services";
 import Testimonial from "./Testimonial";
 import Blog from "../blog/Blog";
 import Teams from "./Teams";
@@ -17,7 +17,7 @@ const Home = () => {
          <Hero />
          <ToolsSection />
          <CompanyLogos />
-         <ServiceSection />
+         <Services />
          <Testimonial />
          <Blog />
          <Teams />

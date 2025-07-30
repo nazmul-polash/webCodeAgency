@@ -42,7 +42,7 @@ const Navbar = () => {
                <li>
                   <details>
                      <summary>Categories</summary>
-                     <ul className="p-2">
+                     <ul className="p-2 z-50">
                         <li><Link to="/">Web Desing</Link></li>
                         <li><Link to="/">App Development</Link></li>
                         <li><Link to="/">UI/UX Design</Link></li>
