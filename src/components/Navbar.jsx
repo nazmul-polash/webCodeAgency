@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router';
+import { userAuth } from '../context/AuthContext';
 
 const Navbar = () => {
+   const {user} = userAuth();
    return (
       <div className="navbar max-w-screen-2xl container mx-auto px-5 bg-white">
          <div className="navbar-start">
