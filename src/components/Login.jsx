@@ -1,14 +1,45 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { userAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import Swal from "sweetalert2";
+import { useState } from "react";
 
 const Login = () => {
-   const {
-      register,
-      handleSubmit,
-      watch,
-      formState: { errors }, } = useForm();
-   const onSubmit = (data) => console.log(data)
+   const { register, handleSubmit, watch, formState: { errors }, } = useForm();
+   const { loginWithEmail, googleLogin } = userAuth();
+
+   const [error, setError] = useState("");
+
+   const navigate = useNavigate();
+   const onSubmit = async (data) => {
+      try {
+         await loginWithEmail(data.email, data.password);
+         Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Login successfull",
+            showConfirmButton: false,
+            timer: 1500
+         });
+         setError("")
+         navigate("/")
+      } catch (error) {
+         console.error("Login Failed", error);
+         setError('Login failded, Please enter correct email and password');
+      }
+
+   }
+
+   // google login  
+   const handleGoogleLogin = async () => {
+      try {
+         await googleLogin();
+      } catch (error) {
+         console.error('Google Login Failed');
+      }
+   }
 
    return (
       <div className="flex items-center justify-center  min-h-screen bg-gray-100">
@@ -46,6 +77,7 @@ const Login = () => {
                   />
                   {errors.password && <p className="text-sm italic text-red-500">{errors.password.message}</p>}
                </div>
+               {error && <p className="text-sm text-red-600 italic">{ error}</p>}
                <div>
                   <button type="submit" className="btn btn-primary w-full rounded-md"> Login  </button>
                </div>
@@ -54,7 +86,7 @@ const Login = () => {
             <div className="text-center space-y-4">
                <p className="text-gray-600 ">Or sign up with</p>
                <div className="space-x-4 flex justify-center">
-                  <button className="btn btn-secondary"><FaGoogle /><span>Google</span></button>
+                  <button onClick={handleGoogleLogin} className="btn btn-secondary"><FaGoogle /><span>Google</span></button>
                   <button className="btn btn-neutral"> <FaGithub /> <span>GitHub</span></button>
                   <button className="btn btn-info"><FaFacebook /> <span>Facebook</span></button>
                </div>

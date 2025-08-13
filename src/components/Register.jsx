@@ -32,20 +32,19 @@ const Register = () => {
       }
    }
 
-
    return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
          <div className="bg-white p-8 rounded-lg shadow-md w-96">
             <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
 
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-               {/* <div className="mb-4">
+               <div className="mb-4">
                   <label className="block text-sm font-medium mb-2" htmlFor="name">Name</label>
                   <input type="text" id="name" className="w-full p-2 border border-gray-300 rounded"
                      {...register("name", { required: "Name is required" })}
                   />
                   {errors.name && (<p className="text-sm text-red-600 italic">{errors.name.message}</p>)}
-               </div> */}
+               </div>
 
                <div className="mb-4">
                   <label className="block text-sm font-medium mb-2" htmlFor="email">Email</label>
@@ -59,13 +58,13 @@ const Register = () => {
                      {...register("password", { required: "Password is required", pattern: { value: 8, message: "Please entered at least 8 charecters" } })} />
                   {errors.password && (<p className="text-sm text-red-600 italic">{errors.password.message}</p>)}
                </div>
-               {/* <div className="mb-4">
+               <div className="mb-4">
                   <label className="block text-sm font-medium mb-2" htmlFor="confirmPassword">Confirm Password</label>
                   <input type="password" id="confirmPassword" className="w-full p-2 border border-gray-300 rounded"
                      {...register("confirm_password", { required: "Confirm Password is required", minLength: { value: 8, message: "Please enter at least 8 characters" },
                         validate: (value) => value === watch("password") || "Passwords do not match" })}/>
                   {errors.confirm_password && ( <p className="text-sm text-red-600 italic">{errors.confirm_password.message}</p>)}
-               </div> */}
+               </div>
 
                <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-200">Register</button>
             </form>
