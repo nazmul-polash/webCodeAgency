@@ -1,9 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { userAuth } from '../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
-   const {user} = userAuth();
+   const { user,logOut } = userAuth();
+   const navigate = useNavigate();
+   const handleLogOut = () => {
+      try {
+         logOut();
+         Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Sign out successfull",
+            showConfirmButton: false,
+            timer: 1500
+         });
+         navigate("/")
+
+      } catch (error) {
+         console.log('Something is wrong', error);
+      }
+   }
    return (
       <div className="navbar max-w-screen-2xl container mx-auto px-5 bg-white">
          <div className="navbar-start">
@@ -56,10 +74,15 @@ const Navbar = () => {
          </div>
 
          <div className="navbar-end space-x-3">
-            <Link to="/login" className='btn btn-outline btn-primary px-8 hidden sm:flex'>Log In</Link>
-            <Link to="/pricing" className='btn btn-primary bg-primary px-8'>Free Trail</Link>
+            {
+               user ? (<><Link to="/dashboard" className='btn btn-outline btn-primary px-8 hidden sm:flex'>Dashboard</Link>
+                  <button onClick={handleLogOut} className='btn btn-primary bg-primary px-8'>Sing Out</button></>)
+                  :
+                  (<><Link to="/login" className='btn btn-outline btn-primary px-8 hidden sm:flex'>Log In</Link>
+                     <Link to="/pricing" className='btn btn-primary bg-primary px-8'>Free Trail</Link> </>)
+            }
          </div>
-         
+
       </div>
    );
 };

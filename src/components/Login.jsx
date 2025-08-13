@@ -13,6 +13,7 @@ const Login = () => {
    const [error, setError] = useState("");
 
    const navigate = useNavigate();
+
    const onSubmit = async (data) => {
       try {
          await loginWithEmail(data.email, data.password);
@@ -24,7 +25,7 @@ const Login = () => {
             timer: 1500
          });
          setError("")
-         navigate("/")
+         navigate("/dashboard")
       } catch (error) {
          console.error("Login Failed", error);
          setError('Login failded, Please enter correct email and password');

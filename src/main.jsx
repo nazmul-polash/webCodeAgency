@@ -12,6 +12,8 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Login from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import AuthProvider from "./context/AuthContext.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
+import Dashboard from "./pages/dsahboard/Dashboard.jsx";
 
 createRoot(document.getElementById("root")).render(
 	<AuthProvider>
@@ -29,6 +31,8 @@ createRoot(document.getElementById("root")).render(
 
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
+				{/* dashboard  */}
+				<Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
 			</Routes>
 		</BrowserRouter>
 	</AuthProvider>
