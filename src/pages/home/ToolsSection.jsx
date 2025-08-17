@@ -37,7 +37,7 @@ const ToolsSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                {
                   tools.map((tool, index) => (
-                     <div key={index} className="flex flex-col items-center bg-white p-5 rounded-lg shadow-lg mb-5 hover:shadow-xl transition">
+                     <div key={index} className="flex flex-col items-center p-5 rounded-lg shadow-lg mb-5 hover:shadow-xl transition">
                         <tool.icon className="text-4xl text-primary mb-3" />
                         <h3 className="text-xl font-semibold">{tool.title}</h3>
                         <p className="text-gray-600">{tool.desc}</p>

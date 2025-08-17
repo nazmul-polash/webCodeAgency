@@ -1,5 +1,7 @@
 /* @import "tailwindcss"; */
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
+}
 .container-section{
    @apply max-w-screen-2xl container mx-auto px-5 py-20;
 }
