@@ -4,7 +4,7 @@ import { userAuth } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
-   const { user,logOut } = userAuth();
+   const { user, logOut } = userAuth();
    const navigate = useNavigate();
    const handleLogOut = () => {
       try {
@@ -23,7 +23,7 @@ const Navbar = () => {
       }
    }
    return (
-      <div className="navbar max-w-screen-2xl container mx-auto px-5 bg-white">
+      <div className="navbar max-w-screen-2xl container mx-auto px-5 bg-base-100 text-base-content">
          <div className="navbar-start">
             <div className="dropdown">
                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,6 +74,10 @@ const Navbar = () => {
          </div>
 
          <div className="navbar-end space-x-3">
+            <div>
+            
+            </div>
+            
             {
                user ? (<><Link to="/dashboard" className='btn btn-outline btn-primary px-8 hidden sm:flex'>Dashboard</Link>
                   <button onClick={handleLogOut} className='btn btn-primary bg-primary px-8'>Sing Out</button></>)
